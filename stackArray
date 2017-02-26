@@ -1,0 +1,35 @@
+class StackArray():
+	def __init__(self):
+		self.arr = []
+
+	def isEmpty(self):
+		return len(self.arr) == 0
+
+	def push(self, data):
+		return self.arr.append(data)
+
+	def pop(self):
+		if self.isEmpty():
+			return "Can't do that sir."
+		else:
+			return self.arr.pop()
+
+	#can't work if stack size is 0
+	#def peek(self):
+	#	return self.arr[len(self.arr) - 1]
+
+	#check first...could probably do try-except
+	def peek(self):
+		if len(self.arr) - 1 >= 0:
+			return(self.arr[len(self.arr)-1])
+
+stack = StackArray()
+
+print(stack.isEmpty())
+stack.push(8)
+stack.push(5)
+print(stack.peek())
+stack.pop()
+print(stack.peek())
+stack.pop()
+print(stack.peek())

@@ -1,0 +1,20 @@
+#finding pairs from 2 arrs whose diff is target
+#note that instead of searching for arr2-arr1 = target, I search arr2 = arr1+target
+#this lets me just check a set (hash set) within arr 2 which is constant. run time is 
+# O(N)
+
+
+def returnPairs(arr, arr2, target):
+	res = []
+	for num in arr:
+		if (num + target) in arr2:
+			res.append((num, num+target))
+	for num in arr2:
+		if (num + target) in arr:
+			res.append((num, num + target))
+	return res
+
+arr = set([1,2,3,4,5,6,7,8])
+arr2 = set([3,5,7,8,10,12,14,16])
+
+print(returnPairs(arr,arr2,2))

@@ -1,0 +1,23 @@
+import random
+import math
+
+def weighCoins(N):
+	if len(N) == 1:
+		return N[0]
+	half = int(math.floor(len(N)/2))
+	batch1 = N[0:half]
+	batch2 = N[half:len(N)]
+	if sum(batch1) > sum(batch2):
+		return weighCoins(batch1)
+	else:
+		return weighCoins(batch2)
+
+coin = input("How Many Coins? ")
+coins = [0 for x in range(int(coin))]
+coins[random.randint(0,coin)] = random.randint(10,20)
+
+print(coins)
+heavyweight = weighCoins(coins)
+print(heavyweight)
+
+

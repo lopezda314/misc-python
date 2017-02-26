@@ -1,0 +1,30 @@
+
+'''
+using additional memory
+'''
+
+def urlify(url):
+    output = []
+    for char in url:
+        if char == ' ':
+            output.append('%20')
+        else:
+            output.append(char)
+    s = ''
+    return s.join(output)
+
+
+def urlifyInPlace(url, len):
+    url = list(url)
+    for char in range(len):
+        if url[char] == ' ' and url[char+1] != ' ' and char+2 < len -1:
+            url[char] = '%'
+            url[char+1] = '2'
+            url[char+2] = '0'
+    s = ''
+    return s.join(url)
+
+s = 'Mr John Smith      '
+print(urlify(s))
+
+print(urlifyInPlace(s,13))

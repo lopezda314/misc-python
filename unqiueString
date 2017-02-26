@@ -1,0 +1,22 @@
+#O(|s|) and uses additional datastructure
+def isUnique(s):
+    return len(set(s)) == len(s)
+
+#O(TBD) but does not use additional datastructures
+def isUniqueNoData(s):
+    for char in range(len(s)):
+        for otherChar in range(char+1,len(s)):
+            if s[char] == s[otherChar]:
+                return False
+    return True
+
+
+s = 'abcdefghijk'
+g='abcdefa'
+
+
+print(isUnique(s))
+print(isUnique(g))
+
+print(isUniqueNoData(s))
+print(isUniqueNoData(g))

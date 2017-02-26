@@ -1,0 +1,19 @@
+def findSum(arrOne, target):
+    lastElt = arrOne[len(arrOne)-1]
+    firstElt = arrOne[0] 
+    for n in range(1,len(arrOne)):   
+        tempSum = lastElt + firstElt
+        if lastElt == firstElt and tempSum != target:
+            print("No pair to make {}".format(target))
+        elif tempSum == target:
+            print("Found match {}/{}".format(firstElt,lastElt))
+        elif tempSum < target:
+            firstElt = arrOne[n]
+        elif tempSum > target:
+            lastElt = arrOne[len(arrOne)-1-n]
+
+
+target = 11
+list = [1,2,3,4,5,6,7,8]
+
+findSum(list,target)

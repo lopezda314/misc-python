@@ -1,0 +1,18 @@
+def palindromePermutation(s):
+    hashDict = {}
+    for char in s:
+        if char in hashDict:
+            hashDict[char] += 1
+        else:
+            hashDict[char] = 1
+    countOdd = 0
+    for char in hashDict:
+        if hashDict[char] % 2 == 1:
+            countOdd += 1
+    return countOdd == 1 or countOdd == 0
+
+'''
+Would need to ask how spaces are treated. Would need to ask if this is ASCII. Would need to ask if numbers are ok. Same principle applies after that though.....check to make sure that everything has an odd number only once. I also have no idea how to account for spaces except for stripping them beforehand. I could think of a way maybe but Gayle didn't even bother discussing it in her solutions o I think I'm ok
+'''
+
+print(palindromePermutation('tactcoa'))

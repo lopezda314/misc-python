@@ -1,0 +1,22 @@
+import math
+
+def binarySearch(searchVal, arr):
+	if len(arr) == 1 and searchVal == arr[0]:
+		return arr[0]
+	elif len(arr) == 1 and searchVal != arr[0]:
+		return "Not Found"
+	half = int(math.floor(len(arr)/2))
+	target = arr[half]
+	if target == searchVal:
+		return target
+	if searchVal > target:
+		return binarySearch(searchVal, arr[half:len(arr)])
+	else:
+		return binarySearch(searchVal, arr[0:half])
+
+check = [10,20,30,40,50,60,70,80,90,100,150,200,500]
+
+print(binarySearch(30, check))
+print(binarySearch(100, check))
+print(binarySearch(42, check))
+	

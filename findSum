@@ -1,0 +1,20 @@
+def findSum(arrOne, target):
+    lastElt = arrOne[len(arrOne)-1]
+    firstElt = arrOne[0] 
+    for n in range(1,len(arrOne)):   
+        tempSum = lastElt + firstElt
+        if tempSum == target:
+            print("Found match {} / {}".format(firstElt,lastElt))
+            return
+        elif tempSum < target:
+            firstElt = arrOne[n]
+        elif tempSum > target:
+            lastElt = arrOne[len(arrOne)-1-n]
+    print("No pair to make {}".format(target))
+
+
+
+target = 8
+list = [1,3,4,4,5,8]
+
+findSum(list,target)

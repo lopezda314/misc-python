@@ -1,0 +1,17 @@
+class Stack():
+	def __init__(self):
+		self.min = 10000000 #pretend inf
+		self.stack = []
+		self.queue = []
+
+	def push(self, n):
+		if n < self.min:
+			self.min = n
+		self.queue.enqueue
+		(n)
+
+	def pop(self):
+		if len(self.stack) > 0:
+			if 
+
+

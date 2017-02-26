@@ -1,0 +1,75 @@
+class Node():
+	def __init__(self, value):
+		self.value = value
+		self.next = None
+
+	def toString(self):
+		print(self.value)
+
+class LinkedList():
+	def __init__(self):
+	    self.head = None
+
+	def insert(self, value):
+		node = Node(value)
+		if self.head is None:
+			self.head = node
+			return
+		else:
+			temp = self.head.next
+			if temp is None:
+				temp = node
+				self.head.next = temp
+				return
+			self.head.next = temp		
+			while temp.next is not None:
+				temp = temp.next	
+			temp.next = node
+
+	def delete(self):
+		if self.head is None:
+			print("Yo you're trying to delete an empty list")
+			return
+		else: 
+			temp = self.head.next
+			if temp is None:
+				self.head = None
+				return
+			else:
+				self.head.next = temp
+				if temp.next is None:
+					self.head.next = None
+					return	
+				while temp.next.next is not None:
+					temp = temp.next
+				temp.next = None
+				return	
+
+	def toString(self):
+		if self.head is not None:
+			self.head.toString()
+		if self.head:
+			temp = self.head.next
+			while temp is not None:
+				temp.toString()
+				temp = temp.next
+			return	
+
+ll = LinkedList()
+ll.insert(1)
+ll.insert(7)
+ll.insert(10)
+ll.toString()
+ll.delete()
+print("\n")
+ll.toString()
+ll.delete()
+ll.delete()
+print('nothing')
+ll.toString()
+
+print('above should have been nothing')
+ll.insert(20)
+ll.insert(15)
+ll.delete()
+ll.toString()

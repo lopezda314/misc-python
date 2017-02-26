@@ -1,0 +1,28 @@
+class Node():
+    def __init__(self, data):
+        self.next = None
+        self.data = data
+
+
+root = Node(10)
+nextNode = Node(9)
+nextNodeAgain = Node(8)
+
+
+root.next = nextNode
+nextNode.next = nextNodeAgain
+
+def printBackwards(root):
+    if root.next is None:
+        print(root.data)
+        return
+    else:
+        printBackwards(root.next)
+        print(root.data)
+
+printBackwards(root)
+
+
+'''
+Edge case I created for myself cause I'm stupid. Stopped at last element because i checked if root.next is none (which it would be for the last elt) and then simply terminated instead of also printing the last elt
+'''

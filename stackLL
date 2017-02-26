@@ -1,0 +1,38 @@
+class Node():
+	def __init__(self, data):
+		self.data = data
+		self.next = None
+
+	def toString(self):
+		print(self.data)
+
+class StackLL():
+	def __init__(self):
+		self.root = Node(None)
+
+	def push(self, data):
+		node = Node(data)
+		node.next = self.root
+		self.root = node
+		return
+
+	def pop(self):
+		if self.root is None:
+			print("Can't pop anymore")
+			return
+		self.root = self.root.next
+		return
+
+	def peek(self):
+		return self.root.toString()
+
+stack = StackLL()
+stack.push(10)
+stack.push(12)
+stack.peek()
+stack.pop()
+stack.peek()
+stack.pop()
+stack.peek()
+stack.pop()
+stack.pop()
